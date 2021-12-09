@@ -21,10 +21,10 @@ RegisterNetEvent("mcewan:buildit")
 AddEventHandler("mcewan:buildit", function()
 
     if cooldowntime == 0 then
-    TaskStartScenarioInPlace(plyPed, "CODE_HUMAN_MEDIC_TEND_TO_DEAD", -1, true)
+        TaskStartScenarioInPlace(plyPed, "CODE_HUMAN_MEDIC_TEND_TO_DEAD", -1, true)
     
     elseif cooldowntime > 0 then
-    notification('~b~Hands are still too cold from the last Snowman you made!~w~')
+        notification('~b~Hands are still too cold from the last Snowman you made!~w~')
     end
 end)
 
@@ -37,11 +37,13 @@ end
 
 function cooldown()
     cooldowntime = 300
-    while cooldowntime > 0 do
-        Citizen.Wait(1000)
-        cooldowntime = cooldowntime - 1
-        print(cooldowntime)
-    end
+        while cooldowntime > 0 do
+            Citizen.Wait(1000)
+            cooldowntime = cooldowntime - 1
+            
+            --Debug
+            --print(cooldowntime)
+        end
     cooldowntime = 0
 end
 
